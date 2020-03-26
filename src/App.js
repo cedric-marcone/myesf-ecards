@@ -26,6 +26,7 @@ const App = () => {
       const dx = position + mx;
       if (down && distance >= CARD_WIDTH / 1.95) {
         const target = -Math.round(dx / CARD_WIDTH);
+        setToggle(false);
         setCurrent(target);
         cancel();
       }
@@ -42,6 +43,7 @@ const App = () => {
   );
 
   const cardChanged = index => () => {
+    setToggle(false);
     setCurrent(index);
     set({ x: -index * CARD_WIDTH });
   };
