@@ -110,12 +110,12 @@ const App = () => {
           />
         ))}
       </nav>
-      <div className="current-card__outer">
-        <div className="current-card" {...bind()}>
+      <div className="info__outer">
+        <div className="info" {...bind()}>
           <div
             ref={infosRef}
-            className={classnames("current-card__inner", {
-              "current-card__inner--far": toggle
+            className={classnames("info__inner", {
+              "info__inner--far": toggle
             })}
           >
             <animated.main
@@ -164,7 +164,7 @@ const App = () => {
             malesuada fames ac ante ipsum primis in faucibus. Vivamus in lectus
             suscipit, elementum sapien et, sagittis lacus..
           </div>
-          <button className="card-toggle" onClick={() => setToggle(!toggle)}>
+          <button className="info-toggle" onClick={() => setToggle(!toggle)}>
             {toggle ? "Voir carte" : "Infos école"}
           </button>
         </div>
