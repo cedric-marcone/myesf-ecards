@@ -1,0 +1,93 @@
+.card {
+  box-sizing: border-box;
+  flex: 0 0 100%;
+  padding: 20px 20px 40px;
+  text-align: justify;
+  margin: 0;
+  opacity: 0;
+  transform: translateY(25px);
+  transition: all 288ms cubic-bezier(0.4, 0, 0.2, 1);
+  will-change: transform, opacity;
+  contain: layout paint style;
+}
+.selected {
+  contain: strict;
+  opacity: 1;
+  transform: translateY(0);
+}
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 40px 0 20px 0;
+}
+.header:first-child {
+  margin-top: 0;
+}
+.headerSeparator {
+  width: 40px;
+  border: none;
+  height: 3px;
+  background-color: #cc0900;
+}
+.headerTitle {
+  font-size: 24px;
+  text-align: center;
+}
+.info {
+  display: flex;
+  align-items: center;
+  box-sizing: border-box;
+  min-height: 48px;
+  padding: 5px 20px;
+  margin: -1px -20px;
+  border-top: 1px solid #ebebeb;
+  border-bottom: 1px solid #ebebeb;
+}
+.infoTitle {
+  flex: 0 0 110px;
+  font-size: 12px;
+  color: #777;
+}
+.infoValue {
+  flex: 1 1 auto;
+  font-size: 14px;
+  color: #333;
+  text-align: left;
+}
+.infoValue > a,
+.infoLink {
+  font-size: 12px;
+  color: #cc0900;
+  text-decoration: none;
+  text-align: right;
+}
+.infoLink {
+  flex: 0 1 auto;
+  margin-left: 10px;
+}
+.infoLink > svg {
+  fill: #777;
+}
+.esf {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  margin-top: 40px;
+}
+.esfLogo {
+  width: 100px;
+  height: 23px;
+  pointer-events: none;
+  touch-action: none;
+}
+.esfName {
+  color: #cc0900;
+  font-size: 18px;
+  transform: skewX(-15deg);
+}
+.subHeader {
+  margin-bottom: 20px;
+  text-align: center;
+  color: #666;
+}

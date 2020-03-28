@@ -3,11 +3,13 @@ import classnames from "classnames";
 import { useSpring, animated } from "react-spring";
 import { useDrag } from "react-use-gesture";
 import "./App.css";
+import Card from "./card";
+import Dot from "./dot";
+import CardInfo from "./card-info";
 
 const CARD_WIDTH = 290;
-const cards = [{}, {}, {}, {}];
 
-const App = () => {
+const App = ({ school, cards }) => {
   const [current, setCurrent] = useState(0);
   const [width, setWidth] = useState(320);
   const [toggle, setToggle] = useState(false);
@@ -52,17 +54,14 @@ const App = () => {
   };
   const mouseUp = index => ({ clientX }) => {
     const d = Math.abs(clientX - mouseDownAt.current);
-    if (d < 2) {
-      cardChanged(index)();
-    }
+    if (d < 2) cardChanged(index)();
   };
 
   const translateCards = x => {
     return `translate(${x}px, 0)`;
   };
   const translateInfos = value => {
-    const x = (value / CARD_WIDTH) * width;
-    return translateCards(x);
+    return translateCards((value / CARD_WIDTH) * width);
   };
 
   const setSizes = () => {
@@ -84,29 +83,24 @@ const App = () => {
           className="cards__inner"
           style={{ transform: props.x.interpolate(translateCards) }}
         >
-          {cards.map((_, index) => (
-            <div
+          {cards.map((card, index) => (
+            <Card
               key={index}
+              school={school}
+              card={card}
               onMouseDown={mouseDown}
               onMouseUp={mouseUp(index)}
-              className={classnames("card", {
-                "card--selected": index === current
-              })}
-            >
-              {index + 1}
-            </div>
+              selected={index === current}
+            />
           ))}
         </animated.div>
       </nav>
       <nav className="cards-dots">
         {cards.map((_, index) => (
-          <button
+          <Dot
             key={index}
             onClick={cardChanged(index)}
-            aria-label={`Carte ${index + 1}`}
-            className={classnames("card-dot", {
-              "card-dot--selected": index === current
-            })}
+            selected={index === current}
           />
         ))}
       </nav>
@@ -122,51 +116,16 @@ const App = () => {
               className="card-infos"
               style={{ transform: props.x.interpolate(translateInfos) }}
             >
-              {cards.map((_, index) => (
-                <section
+              {cards.map((card, index) => (
+                <CardInfo
                   key={index}
-                  className={classnames("card-info", {
-                    "card-info--selected": index === current
-                  })}
-                >
-                  <h2>Carte {index + 1}</h2>
-                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                  Praesent gravida tincidunt elit, sit amet vestibulum orci
-                  tristique quis. Vivamus quis tellus mauris. Fusce interdum
-                  pharetra elit, a tristique erat vehicula et. Interdum et
-                  malesuada fames ac ante ipsum primis in faucibus. Vivamus in
-                  lectus suscipit, elementum sapien et, sagittis lacus.. Lorem
-                  ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-                  gravida tincidunt elit, sit amet vestibulum orci tristique
-                  quis. Vivamus quis tellus mauris. Fusce interdum pharetra
-                  elit, a tristique erat vehicula et. Interdum et malesuada
-                  fames ac ante ipsum primis in faucibus. Vivamus in lectus
-                  suscipit, elementum sapien et, sagittis lacus..
-                </section>
+                  school={school}
+                  card={card}
+                  selected={index === current}
+                />
               ))}
             </animated.main>
           </div>
-          <div
-            className={classnames("school-info", {
-              "school-info--selected": toggle
-            })}
-          >
-            <h2>Infos écoles</h2>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent
-            gravida tincidunt elit, sit amet vestibulum orci tristique quis.
-            Vivamus quis tellus mauris. Fusce interdum pharetra elit, a
-            tristique erat vehicula et. Interdum et malesuada fames ac ante
-            ipsum primis in faucibus. Vivamus in lectus suscipit, elementum
-            sapien et, sagittis lacus.. Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit. Praesent gravida tincidunt elit, sit amet
-            vestibulum orci tristique quis. Vivamus quis tellus mauris. Fusce
-            interdum pharetra elit, a tristique erat vehicula et. Interdum et
-            malesuada fames ac ante ipsum primis in faucibus. Vivamus in lectus
-            suscipit, elementum sapien et, sagittis lacus..
-          </div>
-          <button className="info-toggle" onClick={() => setToggle(!toggle)}>
-            {toggle ? "Voir carte" : "Infos école"}
-          </button>
         </div>
       </div>
     </div>
