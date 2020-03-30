@@ -1,28 +1,19 @@
 html,
 body {
-  height: 100vh;
   margin: 0;
   padding: 0;
-  overflow: hidden;
-  background: #fafafa;
+  overflow-x: hidden;
 }
-#root {
-  user-select: none;
-  cursor: default;
-  font-family: "Poppins", sans-serif;
-  height: 100%;
-}
-
 .cards-selector {
-  position: relative;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  user-select: none;
+  font-family: "Poppins", sans-serif;
+  background: #fafafa;
 }
-
 .cards {
   z-index: 1;
-  flex: 0 0 auto;
+  flex: 0 0 200px;
   width: 320px;
   margin: 0 auto;
 }
@@ -30,9 +21,7 @@ body {
   display: flex;
   margin: 0 5px 0 15px;
   will-change: transform;
-  /* contain: strict; */
 }
-
 .cards-dots {
   contain: strict;
   z-index: 2;
@@ -41,20 +30,12 @@ body {
   align-items: center;
   justify-content: center;
 }
-
-.info__outer {
-  flex: 1 1 100%;
-  position: relative;
-  contain: strict;
-}
 .info {
   z-index: 1;
+  flex: 1 1 auto;
+}
+.info__inner {
   box-sizing: border-box;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
   min-width: 290px;
   max-width: 600px;
   padding: 0;
@@ -63,17 +44,6 @@ body {
   background-color: #fff;
   box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-}
-.info__inner {
-  height: 100%;
-  overflow-y: auto;
-  overflow-x: hidden;
-  transform-origin: top;
-  transition: all 256ms cubic-bezier(0.4, 0, 0.2, 1);
-}
-.info__inner--far {
-  transform: perspective(800px) rotateX(-90deg);
-  opacity: 0;
 }
 .card-infos {
   display: flex;

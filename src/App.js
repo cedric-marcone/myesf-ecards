@@ -1,18 +1,16 @@
 import React, { useState, useRef, useEffect } from "react";
-import classnames from "classnames";
 import { useSpring, animated } from "react-spring";
 import { useDrag } from "react-use-gesture";
-import "./App.css";
 import Card from "./card";
 import Dot from "./dot";
 import CardInfo from "./card-info";
+import "./App.css";
 
 const CARD_WIDTH = 290;
 
 const App = ({ school, cards }) => {
   const [current, setCurrent] = useState(0);
   const [width, setWidth] = useState(320);
-  const [toggle, setToggle] = useState(false);
   const cardsRef = useRef();
   const infosRef = useRef();
   const mouseDownAt = useRef();
@@ -29,7 +27,6 @@ const App = ({ school, cards }) => {
       if (down && distance > CARD_WIDTH / 2) {
         const target = -Math.round(dx / CARD_WIDTH);
         const clamped = Math.min(Math.max(target, 0), cards.length - 1);
-        setToggle(false);
         setCurrent(clamped);
         cancel();
       }
@@ -46,7 +43,6 @@ const App = ({ school, cards }) => {
   );
 
   const cardChanged = index => () => {
-    setToggle(false);
     setCurrent(index);
     set({ x: -index * CARD_WIDTH });
   };
@@ -67,11 +63,9 @@ const App = ({ school, cards }) => {
 
   const setSizes = () => {
     setWidth(infosRef.current.offsetWidth);
-    window.document.body.style.height = `${window.innerHeight}px`;
   };
 
   useEffect(() => {
-    infosRef.current.scrollTop = 0;
     setSizes();
     window.addEventListener("resize", setSizes);
     return () => window.removeEventListener("resize", setSizes);
@@ -105,28 +99,22 @@ const App = ({ school, cards }) => {
           />
         ))}
       </nav>
-      <div className="info__outer">
-        <div className="info" {...bind()}>
-          <div
+      <div className="info" {...bind()}>
+        <div className="info__inner">
+          <animated.main
             ref={infosRef}
-            className={classnames("info__inner", {
-              "info__inner--far": toggle
-            })}
+            className="card-infos"
+            style={{ transform: props.x.interpolate(translateInfos) }}
           >
-            <animated.main
-              className="card-infos"
-              style={{ transform: props.x.interpolate(translateInfos) }}
-            >
-              {cards.map((card, index) => (
-                <CardInfo
-                  key={index}
-                  school={school}
-                  card={card}
-                  selected={index === current}
-                />
-              ))}
-            </animated.main>
-          </div>
+            {cards.map((card, index) => (
+              <CardInfo
+                key={index}
+                school={school}
+                card={card}
+                selected={index === current}
+              />
+            ))}
+          </animated.main>
         </div>
       </div>
     </div>
