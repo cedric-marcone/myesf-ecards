@@ -2,37 +2,36 @@ html,
 body {
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
 .cards-selector {
-  display: flex;
-  flex-direction: column;
   user-select: none;
   font-family: "Poppins", sans-serif;
   background: #fafafa;
 }
 .cards {
-  z-index: 1;
-  flex: 0 0 200px;
+  z-index: 3;
+  height: 200px;
   width: 320px;
   margin: 0 auto;
+  position: sticky;
+  top: -77px;
 }
 .cards__inner {
   display: flex;
   margin: 0 5px 0 15px;
   will-change: transform;
+  contain: layout style;
 }
 .cards-dots {
-  contain: strict;
   z-index: 2;
-  flex: 0 0 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
+  contain: layout paint style;
 }
 .info {
   z-index: 1;
-  flex: 1 1 auto;
 }
 .info__inner {
   box-sizing: border-box;
@@ -48,4 +47,5 @@ body {
 .card-infos {
   display: flex;
   will-change: transform;
+  contain: layout style;
 }
