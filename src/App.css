@@ -11,7 +11,6 @@ body {
   overflow-x: hidden;
   user-select: none;
   font-family: "Poppins", sans-serif;
-  background: #fafafa;
 }
 .cards {
   z-index: 3;
@@ -44,13 +43,20 @@ body {
   max-width: 600px;
   padding: 0;
   margin: 10px auto 0;
-  border-radius: 10px 10px 0 0;
-  background-color: #fff;
-  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
 }
 .card-infos {
   display: flex;
   will-change: transform;
   contain: layout style;
+}
+@media (min-width: 600px) {
+  .info__inner {
+    overflow: hidden;
+    border-radius: 10px 10px 0 0;
+    background-color: #fff;
+    box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+  }
+  .cards-selector {
+    background-color: #fdfdfd;
+  }
 }
