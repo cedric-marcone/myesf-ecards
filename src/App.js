@@ -33,7 +33,7 @@ const App = ({ school, cards }) => {
       set({ x: down ? dx : position });
     },
     {
-      axis: "x",
+      // axis: "x",
       rubberband: 0.25,
       bounds: {
         left: (cards.length - current - 1) * -CARD_WIDTH,
