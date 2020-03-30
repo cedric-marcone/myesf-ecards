@@ -24,7 +24,7 @@ const App = ({ school, cards }) => {
     ({ down, distance, movement: [mx], cancel }) => {
       const position = -current * CARD_WIDTH;
       const dx = position + mx;
-      if (down && distance > CARD_WIDTH / 2) {
+      if (down && distance >= CARD_WIDTH / 1.9) {
         const target = -Math.round(dx / CARD_WIDTH);
         const clamped = Math.min(Math.max(target, 0), cards.length - 1);
         setCurrent(clamped);
@@ -33,7 +33,7 @@ const App = ({ school, cards }) => {
       set({ x: down ? dx : position });
     },
     {
-      // axis: "x",
+      axis: "x",
       rubberband: 0.25,
       bounds: {
         left: (cards.length - current - 1) * -CARD_WIDTH,
