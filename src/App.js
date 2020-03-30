@@ -40,7 +40,7 @@ const App = ({ school, cards }) => {
       rubberband: 0.25,
       bounds: {
         left: (cards.length - current - 1) * -CARD_WIDTH,
-        right: -current * -CARD_WIDTH
+        right: current * CARD_WIDTH
       }
     }
   );
