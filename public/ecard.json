@@ -1,0 +1,71 @@
+{
+  "ecole": 419,
+  "saison": 2020,
+  "client": {
+    "nom": "Marcone",
+    "prenom": "Cédric",
+    "pays": "FRA", // optionnel
+    "telephone": "0672395830", // optionnel
+    "email": "cedric.marcone@valraiso.fr" // si pas renseigné dans 4807 : pas d'ecard
+  },
+  "vente": {
+    "no4807": 123456789,
+    "noVel": 12345678,
+    "noMsem": "EP-123456789",
+    "dateVente": "2019-09-02",
+    "residence": "Hôtel des cimes" // Toujours le libellé (pas le code)
+  },
+  "lignes": [
+    {
+      "eleves": [
+        {
+          "civilite": 0,
+          "nom": "Marcone",
+          "prenom": "Théo",
+          "dateNaissance": "2017-08-30",
+          "langueParlee": "FR"
+        }
+      ], // Liste des élèves inscrits au inscriptions ci-après
+      "inscriptions": [
+        {
+          "libelle": "Cours collectif journée", // libellé du produit sec ou de l'option du package
+          "commentaires": [
+            "Pour ce cours vous devez être en possession d'un forfait grand domaine"
+          ], // Commentaire du produit sec ou commentaires non-null attachés aux produits de l'option dans le cas package
+          "moniteur": 35427, // No de CS, optionnel si non-encore affecté
+          "typeProduit": {
+            "code": "CC",
+            "libelle": "Les cours collectifs"
+          },
+          "specialite": {
+            "code": "SKI",
+            "libelle": "Ski alpin",
+            "codeDiscipline": "ALPIN"
+          },
+          "niveau": {
+            "code": "ALPET1",
+            "libelle": "1ère étoile"
+          },
+          "rendezVous": {
+            "code": "TS",
+            "libelle": "Devant le téléski"
+          },
+          "horaires": [
+            {
+              "debut": "2020-02-09",
+              "fin": "2020-02-11",
+              "de": "09h00",
+              "a": "11h00"
+            },
+            {
+              "debut": "2020-02-12",
+              "fin": "2020-02-14",
+              "de": "09h15",
+              "a": "11h00"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
