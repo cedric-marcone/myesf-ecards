@@ -6,7 +6,6 @@ body {
   overflow: hidden;
 }
 .cards-selector {
-  /* TODO : assign height based on innerHeight (for iOS) */
   height: 100vh;
   overflow-x: hidden;
   user-select: none;

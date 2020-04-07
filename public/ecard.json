@@ -13,9 +13,11 @@
     "noVel": 12345678,
     "noMsem": "EP-123456789",
     "payee": "2019-09-02",
-    "residence": "Hôtel des cimes" // Toujours le libellé (pas le code)
+    "residence": "Hôtel des cimes", // Toujours le libellé (pas le code)
+    "langue": "FR" // QUESTION CBR : Possible ?
   },
   "lignes": [
+    // QUESTION CBR : Commmande === Vente au comptoir ?
     {
       "eleves": [
         {
