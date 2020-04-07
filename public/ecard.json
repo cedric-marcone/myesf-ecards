@@ -12,7 +12,7 @@
     "no4807": 123456789,
     "noVel": 12345678,
     "noMsem": "EP-123456789",
-    "dateVente": "2019-09-02",
+    "payee": "2019-09-02",
     "residence": "Hôtel des cimes" // Toujours le libellé (pas le code)
   },
   "lignes": [
@@ -22,8 +22,8 @@
           "civilite": 0,
           "nom": "Marcone",
           "prenom": "Théo",
-          "dateNaissance": "2017-08-30",
-          "langueParlee": "FR"
+          "naissance": "2017-08-30",
+          "langue": "FR"
         }
       ], // Liste des élèves inscrits au inscriptions ci-après
       "inscriptions": [
@@ -40,7 +40,7 @@
           "specialite": {
             "code": "SKI",
             "libelle": "Ski alpin",
-            "codeDiscipline": "ALPIN"
+            "discipline": "ALPIN"
           },
           "niveau": {
             "code": "ALPET1",
