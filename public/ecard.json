@@ -6,66 +6,61 @@
     "prenom": "Cédric",
     "pays": "FRA", // optionnel
     "telephone": "0672395830", // optionnel
-    "email": "cedric.marcone@valraiso.fr" // si pas renseigné dans 4807 : pas d'ecard
+    "email": "cedric.marcone@valraiso.fr", // si pas renseigné dans 4807 : pas d'ecard
+    "langue": "FR" // Note : implique modif dans ImportCommandes
   },
   "vente": {
     "no4807": 123456789,
     "noVel": 12345678,
     "noMsem": "EP-123456789",
     "payee": "2019-09-02",
-    "residence": "Hôtel des cimes", // Toujours le libellé (pas le code)
-    "langue": "FR" // QUESTION CBR : Possible ?
+    "residence": "Hôtel des cimes" // Toujours le libellé (pas le code)
   },
-  "lignes": [
-    // QUESTION CBR : Commmande === Vente au comptoir ?
+  "eleves": [
     {
-      "eleves": [
+      "civilite": 0,
+      "nom": "Marcone",
+      "prenom": "Théo",
+      "naissance": "2017-08-30",
+      "langue": "FR"
+    }
+  ], // Liste des élèves inscrits au inscriptions ci-après
+  "inscriptions": [
+    {
+      "libelle": "Cours collectif journée", // libellé du produit sec ou de l'option du package
+      "commentaires": [
+        "Pour ce cours vous devez être en possession d'un forfait grand domaine"
+      ], // Commentaire du produit sec ou commentaires non-null attachés aux produits de l'option dans le cas package
+      "moniteur": 35427, // No de CS, optionnel si non-encore affecté
+      "typeProduit": {
+        "code": "CC",
+        "libelle": "Les cours collectifs"
+      },
+      "specialite": {
+        "code": "SKI",
+        "libelle": "Ski alpin",
+        "discipline": "ALPIN"
+      },
+      "niveau": {
+        "code": "ALPET1",
+        "libelle": "1ère étoile"
+      },
+      "rendezVous": {
+        "code": "TS",
+        "libelle": "Devant le téléski"
+      },
+      "horaires": [
         {
-          "civilite": 0,
-          "nom": "Marcone",
-          "prenom": "Théo",
-          "naissance": "2017-08-30",
-          "langue": "FR"
-        }
-      ], // Liste des élèves inscrits au inscriptions ci-après
-      "inscriptions": [
+          "debut": "2020-02-09",
+          "fin": "2020-02-11",
+          "de": "09h00",
+          "a": "11h00"
+        },
         {
-          "libelle": "Cours collectif journée", // libellé du produit sec ou de l'option du package
-          "commentaires": [
-            "Pour ce cours vous devez être en possession d'un forfait grand domaine"
-          ], // Commentaire du produit sec ou commentaires non-null attachés aux produits de l'option dans le cas package
-          "moniteur": 35427, // No de CS, optionnel si non-encore affecté
-          "typeProduit": {
-            "code": "CC",
-            "libelle": "Les cours collectifs"
-          },
-          "specialite": {
-            "code": "SKI",
-            "libelle": "Ski alpin",
-            "discipline": "ALPIN"
-          },
-          "niveau": {
-            "code": "ALPET1",
-            "libelle": "1ère étoile"
-          },
-          "rendezVous": {
-            "code": "TS",
-            "libelle": "Devant le téléski"
-          },
-          "horaires": [
-            {
-              "debut": "2020-02-09",
-              "fin": "2020-02-11",
-              "de": "09h00",
-              "a": "11h00"
-            },
-            {
-              "debut": "2020-02-12",
-              "fin": "2020-02-14",
-              "de": "09h15",
-              "a": "11h00"
-            }
-          ]
+          "debut": "2020-02-12",
+          "fin": "2020-02-14",
+          "de": "09h15",
+          "a": "11h00"
         }
       ]
     }
