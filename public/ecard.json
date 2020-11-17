@@ -24,7 +24,9 @@
       "nom": "Marcone",
       "prenom": "Théo",
       "naissance": "2017-08-30",
-      "langue": "FR"
+      "langue": "FR",
+      "email": "theo.marcone@gmail.com",
+      "telephone": "0672395830"
     }
   ], // Liste des élèves inscrits au inscriptions ci-après
   "inscriptions": [
