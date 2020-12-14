@@ -11,7 +11,7 @@
     "langue": "FR" // Note : implique modif dans ImportCommandes
   },
   "vente": {
-    "noPackage": 123456789, // *NEW* Optionnel : N° de l'instance de package pour regrouper les ventes
+    "noPackage": 123456789, // *NEW* Optionnel : N° de l'instance de package pour regrouper les ventes par package
     "no4807": 123456789,
     "noVel": 12345678, // Optionnel : cas vente comptoir
     "noMsem": "EP-123456789", // Optionnel : cas vente comptoir
@@ -31,6 +31,7 @@
   ], // Liste des élèves inscrits au inscriptions ci-après
   "inscriptions": [
     {
+      "noEtape": 123456789, // *NEW* Optionnel : N° d'étape pour regrouper les ventes par étape au sein d'un package
       "libelle": "Cours collectif journée", // libellé du produit sec ou de l'option du package
       "commentaires": [
         "Pour ce cours vous devez être en possession d'un forfait grand domaine"
